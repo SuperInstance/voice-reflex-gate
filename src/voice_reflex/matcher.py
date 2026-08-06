@@ -14,6 +14,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Sequence
 
+import difflib
+
 try:
     from rapidfuzz import fuzz as rf_fuzz
     from rapidfuzz import process as rf_process
@@ -21,7 +23,6 @@ try:
     HAS_RAPIDFUZZ = True
 except ImportError:
     HAS_RAPIDFUZZ = False
-    import difflib
 
     rf_fuzz = None  # type: ignore
     rf_process = None  # type: ignore
