@@ -158,7 +158,7 @@ class FuzzyMatcher:
                 key=self._patterns[best_text],
                 tier="exact",
             )
-        elif best_score >= self.fuzzy_threshold:
+        elif best_score >= self.fuzzy_threshold and best_text in self._patterns:
             return MatchResult(
                 matched=True,
                 text=best_text,

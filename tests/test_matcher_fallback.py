@@ -81,7 +81,8 @@ class TestDifflibFallback:
         mock_process.extractOne.return_value = None
 
         with patch("voice_reflex.matcher.HAS_RAPIDFUZZ", True), \
-             patch("voice_reflex.matcher.rf_process", mock_process):
+             patch("voice_reflex.matcher.rf_process", mock_process), \
+             patch("voice_reflex.matcher.rf_fuzz"):
             best_text, best_score = m._best_match("test", ["abc"])
             assert best_text == ""
             assert best_score == 0.0
